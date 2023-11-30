@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  middleware: 'auth'
+})
 const items = [{
   key: 'account',
   label: 'Account',
@@ -22,8 +25,8 @@ const items = [{
                 {{ item.description }}
               </p>
             </template>
-            <Account v-if="item.key==='account'"/>
-            <ChangePassword v-if="item.key==='password'"/>
+            <FormAccount v-if="item.key==='account'"/>
+            <FormChangePassword v-if="item.key==='password'"/>
             </UCard>
         </template>
     </UTabs>

@@ -1,4 +1,3 @@
-import { Link } from '../.nuxt/components';
 <script setup>
 
 </script>

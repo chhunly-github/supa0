@@ -1,9 +1,16 @@
 <script setup>
+definePageMeta({
+  middleware: 'auth'
+})
     const supabase = useSupabaseClient();
     const labels = ref([]);
     const { data } = await supabase
         .from('label')
         .select('id, title, color');
+    // const { data} = await useFetch('/api/label', {
+    //   headers: useRequestHeaders(['cookie'])
+    // })
+    // console.log(data.value.label)
     labels.value = data;
 const selected = ref(null);
         // Create a function to handle inserts
@@ -29,9 +36,9 @@ supabase
 <template>
     <div >
 
-        <div v-if="labels && labels.length" class="flex gap-3">
+        <div v-if="labels && labels.length" class="flex flex-wrap gap-3">
             <UButton v-for="lb in labels" :color="lb.color" @click="onClick(lb)">{{ lb.title }}</UButton>
         </div>
-        <AddLabel :selected="selected"/>
+        <FormAddLabel :selected="selected"/>
     </div>
 </template>

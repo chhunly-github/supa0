@@ -1,10 +1,7 @@
 <template>
 	<div class="container">
-		<Header></Header>
-		<div v-if="user" class="p-3">
-			<NuxtPage></NuxtPage>
-		</div>
-		<Auth v-else />
+		<LayoutHeader />
+		<NuxtPage></NuxtPage>
 	</div>
 </template>
 
@@ -12,5 +9,10 @@
 useHead({
 	title: 'User Management'
 })
-const user = useSupabaseUser()
+// const {data} = await useFetch('/api/profile', {
+// 				headers: useRequestHeaders(['cookie'])
+// 			});
+// console.log('resp', data)
+// const user = data.value?.user;
+const user = useSupabaseUser();
 </script>

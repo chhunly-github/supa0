@@ -3,7 +3,7 @@
         <Avatar v-model:path="avatar_path" @upload="updateProfile" :size="10" />
         <div>
             <label for="email">Email</label>
-            <input id="email" type="text" :value="user.email" disabled />
+            <input id="email" type="text" :value="user?.email" disabled />
         </div>
         <div>
             <label for="username">Name</label>
@@ -48,7 +48,7 @@ const { data: profile } = await useAsyncData('profile', async () => {
     return data
 })
 
-if (profile.value.username) {
+if (profile.value?.username) {
     username.value = profile.value.username
     website.value = profile.value.website
     avatar_path.value = profile.value.avatar_url

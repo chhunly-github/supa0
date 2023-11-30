@@ -24,10 +24,17 @@ const password = ref("")
 const handleLogin = async () => {
     try {
         loading.value = true
-        const { error, data } = await supabase.auth.signInWithPassword({ email: email.value, password: password.value })
+        const { data } = await supabase.auth.signInWithPassword({ email: email.value, password: password.value })
+        // const { error, data } = await useFetch('/api/login', {
+        //     body: { email: email.value, password: password.value },
+        //     method: 'post'
+        // });
         console.log(data)
-        if (error) throw error
-        alert("Check your email for the login link!")
+        if(data.user) {
+            location.reload();
+        }else {
+            if (!data.user) throw {message: "Check your email for the login link!"};
+        }
     } catch (error) {
         alert(error.message)
     } finally {

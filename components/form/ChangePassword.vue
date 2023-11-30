@@ -23,7 +23,7 @@ const loading = ref(false)
 const new_password = ref('')
 const confirm = ref('')
 
-const user = useSupabaseUser();
+// const user = useSupabaseUser();
 
 async function updatePassword() {
 
