@@ -21,7 +21,7 @@ const onClick = (lb) => {
 <template>
     <div >
 
-        <ListLabel @selected="onClick"/>
-        <FormAddLabel :selected="selected"/>
+        <ListCategory @selected="onClick"/>
+        <FormAddCategory :selected="selected"/>
     </div>
 </template>

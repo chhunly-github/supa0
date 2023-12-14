@@ -1,6 +1,6 @@
 <template>
     <form class="form-widget" @submit.prevent="updateProfile">
-        <Avatar v-model:path="avatar_path" @upload="updateProfile" :size="10" />
+        <UtilAvatar v-model:path="avatar_path" @upload="updateProfile" :size="10" />
         <div>
             <label for="email">Email</label>
             <input id="email" type="text" :value="user?.email" disabled />
